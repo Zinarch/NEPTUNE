@@ -1,6 +1,6 @@
 -module(training).
 
--export([add/2, hello/0, greet_and_add_two/1, greet/2, same/2, valid_time/1, old_enough/1, wrong_age/1]).
+-export([add/2, hello/0, greet_and_add_two/1, greet/2, same/2, valid_time/1, old_enough/1, wrong_age/1, beach/1]).
 
 add(A,B) ->
 	 A + B.
@@ -42,3 +42,16 @@ wrong_age(X) when X > 16; X > 105 ->
 wrong_age(_) ->
 	false.
 
+beach(Temperature) ->
+	case Temperature of
+		{celsius, N} when N >= 20, N =< 45 ->
+			'favorable';
+		{kelvin, N} when N >= 293, N =< 318 ->
+			'scientifically favorable';
+		{fahrenheit, N} when N >= 68, N =< 113 ->
+			'favorable in the US';
+		_ ->
+			'avoid beach'
+			
+		end.
+		
